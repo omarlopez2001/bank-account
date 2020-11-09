@@ -7,7 +7,7 @@ class BankAccount:
         self.balance = balance
 
     def deposit(self, amount):
-        self.balance += amount + self.balance
+        self.balance += amount
         print(f'Amount Deposited: {amount}')
         return self.balance
     
@@ -22,4 +22,9 @@ class BankAccount:
 
     def get_balance(self):
         print(f'Your account balance is: {self.balance}')
+        return self.balance
+
+    def add_interest(self):
+        interest = self.balance * 0.00083
+        self.balance += interest
         return self.balance
