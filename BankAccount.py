@@ -15,7 +15,11 @@ class BankAccount:
         self.balance = self.balance - amount
         if self.balance < amount:
             self.balance = self.balance - 10
-            print(f'Insufficient funds. You have been charged with an overdraft fee of $10.')
+            print(f'Insufficient funds. You have been charged an overdraft fee of $10.')
         elif self.balance > amount:
             print(f'Amount Withdrawn: {amount}')
+        return self.balance
+
+    def get_balance(self):
+        print(f'Your account balance is: {self.balance}')
         return self.balance
