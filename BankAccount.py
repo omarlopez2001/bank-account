@@ -5,3 +5,8 @@ class BankAccount:
         self.account = account_number
         self.routing = routing_number
         self.balance = balance
+
+    def deposit(self, amount):
+        self.balance += amount + self.balance
+        print(f'Amount Deposited: {amount}')
+        return self.balance
