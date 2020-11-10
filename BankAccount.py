@@ -10,7 +10,7 @@ class BankAccount:
     def deposit(self, amount):
         self.balance += amount
         print(f'Amount Deposited: {amount}')
-        return self.balance
+        return (f'Account balance: {self.balance}')
     
     def withdraw(self, amount):
         self.balance = self.balance - amount
@@ -19,7 +19,7 @@ class BankAccount:
             print(f'Insufficient funds. You have been charged an overdraft fee of $10.')
         elif self.balance > amount:
             print(f'Amount Withdrawn: {amount}')
-        return self.balance
+        return (f'Account balance: {self.balance}')
 
     def get_balance(self):
         print(f'Your account balance is: {self.balance}')
@@ -32,7 +32,78 @@ class BankAccount:
     
     def print_receipt(self):
         print(self.name)
-        re.sub('\d', '*', str(self.account), 4)
-        print(f'Account No.: {self.account}')
+        account = re.sub('\d', '*', str(self.account), 4)
+        print(f'Account No.: {account}')
         print(f'Routing No.: {self.routing}')
-        print(f'Balance: {self.balance}')
+        print(f'Balance: ${self.balance}')
+
+omar = BankAccount('Omar Lopez', 20988763, 53981284, 890)
+abel = BankAccount('Abel Pineda', 34506398, 61039044, 900)
+edgar = BankAccount('Edgar Ulloa', 89680089, 99225678, 670)
+
+print(f'Welcome to Terminal ATM!')
+print(f'Please enter your first name.')
+
+user = ""
+
+user = input('What is your first name?:')
+if user == 'omar':
+    choice = input(""" Please choose from the following options: 
+    1. Deposit money into account
+    2. Withdraw money from account
+    3. View balance
+    4. View monthly interest
+    5. Print out receipt
+    """)
+    if choice == "1":
+        amount = int(input('How much money would you like to deposit?'))
+        print(omar.deposit(amount))
+    elif choice == "2":
+        amount = int(input('How much money would you like to withdraw?'))
+        print(omar.withdraw(amount))
+    elif choice == "3":
+        print(omar.get_balance())
+    elif choice == "4":
+        print(omar.add_interest())
+    elif choice == "5":
+        print(omar.print_receipt())
+elif user == 'abel':
+    choice = input(""" Please choose from the following options: 
+    1. Deposit money into account
+    2. Withdraw money from account
+    3. View balance
+    4. View monthly interest
+    5. Print out receipt
+    """)
+    if choice == "1":
+        amount = int(input('How much money would you like to deposit?'))
+        print(abel.deposit(amount))
+    elif choice == "2":
+        amount = int(input('How much money would you like to withdraw?'))
+        print(abel.withdraw(amount))
+    elif choice == "3":
+        print(abel.get_balance())
+    elif choice == "4":
+        print(abel.add_interest())
+    elif choice == "5":
+        print(abel.print_receipt())
+elif user == 'edgar':
+    choice = input(""" Please choose from the following options: 
+    1. Deposit money into account
+    2. Withdraw money from account
+    3. View balance
+    4. View monthly interest
+    5. Print out receipt
+    """)
+    if choice == "1":
+        amount = int(input('How much money would you like to deposit?'))
+        print(edgar.deposit(amount))
+    elif choice == "2":
+        amount = int(input('How much money would you like to withdraw?'))
+        print(edgar.withdraw(amount))
+    elif choice == "3":
+        print(edgar.get_balance())
+    elif choice == "4":
+        print(edgar.add_interest())
+    elif choice == "5":
+        print(edgar.print_receipt())
